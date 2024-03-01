@@ -86,7 +86,7 @@ Included are various GHA workflows using different triggers for various purposes
 - workflow_dispatch = Manually Trigger Workflows from GHA
   - build-farmos-dev = Builds a custom 3.x-dev image for local development
   - build-farmos-branch = Builds a custom 3.x image for testing of the default_branch
-  - build-farmos-release = Builds a custom 3.0.0-beta3 image for production
+  - build-farmos-release = Builds a custom 3.1.2 image for production
 
 ##### Deploy Traefik Reverse Proxy to Remote Server
 - workflow_dispatch = Manually Trigger Workflows from GHA
@@ -100,14 +100,14 @@ Included are various GHA workflows using different triggers for various purposes
   - deploy-farmos-branch-testing = Builds & deploys a custom 3.x image for testing of the default_branch
 
 - tags = Tag a release of farmos-mountain-site
-  - deploy-farmos-release-live = Builds & deploys a custom 3.0.0-beta3 image for production
+  - deploy-farmos-release-live = Builds & deploys a custom 3.1.2 image for production
 
 ##### Re-deploy farmOS to Remote Server
 
 - workflow_dispatch = Manually Trigger Workflows from GHA
   - redeploy-farmos-dev = Redeploys a custom 3.x image (without rebuild) for development
   - redeploy-farmos-branch-testing = Redeploys a custom 3.x image (without rebuild) for testing
-  - redeploy-farmos-release-live = Redeploys a custom 3.0.0-beta3 image (without rebuild) for production
+  - redeploy-farmos-release-live = Redeploys a custom 3.1.2 image (without rebuild) for production
 
 Voila! Your farmOS site(s) should be live and kicking! 🎉
 
