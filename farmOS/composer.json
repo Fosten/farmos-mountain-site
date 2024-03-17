@@ -53,11 +53,6 @@
         "web-root": "web/"
       }
     },
-    "patches": {
-      "drupal/core": {
-        "Fix Xdebug 3.3.0+ error": "https://www.drupal.org/files/issues/2024-02-21/3405976-10.2.x-shutdown-functions-156.patch" 
-      }
-    },
     "installer-paths": {
       "web/core": ["type:drupal-core"],
       "web/libraries/{$name}": ["type:drupal-library"],
