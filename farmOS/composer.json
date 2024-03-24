@@ -31,6 +31,10 @@
     "farm-csv-importer": {
       "type": "git",
       "url": "https://github.com/fosten/farm_mountain_csv_importer.git"
+    },
+    "farm-seed-asset-extended": {
+      "type": "git",
+      "url": "https://github.com/fosten/farm_seed_asset_extended.git"
     }
   },
   "require": {
