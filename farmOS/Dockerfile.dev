@@ -23,10 +23,6 @@ USER www-data
 # Install composer.
 RUN composer config cache-dir /var/www/.composer
 RUN composer require "farmos/farmos:3.x-dev" --no-install
-RUN composer require "drupal/farm_crop_plan:3.x-dev@dev" --no-install
-RUN composer require "fosten/farm_mountain_csv_importer:*" --no-install
-RUN composer require "fosten/farm_seed_asset_extended:*" --no-install
-RUN composer require "farmer-eds-shed/farm_calendar_events:*" --no-install
 RUN if [ "$FARM_CONFIG_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_config:*" --no-install \
   ;fi

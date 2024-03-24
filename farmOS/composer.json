@@ -43,7 +43,11 @@
   },
   "require": {
     "oomphinc/composer-installers-extender": "^2.0",
-    "wikimedia/composer-merge-plugin": "^2.0"
+    "wikimedia/composer-merge-plugin": "^2.0",
+    "drupal/farm_crop_plan":" ^3.0@alpha",
+    "fosten/farm_seed_asset_extended": "*",
+    "drupal/google_api_client": "^4.2",
+    "farmer-eds-shed/farm_calendar_events": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
