@@ -35,6 +35,10 @@
     "farm-seed-asset-extended": {
       "type": "git",
       "url": "https://github.com/fosten/farm_seed_asset_extended.git"
+    },
+    "farm-calendar-events": {
+      "type": "git",
+      "url": "https://github.com/Farmer-Eds-Shed/farm_calendar_events"
     }
   },
   "require": {
