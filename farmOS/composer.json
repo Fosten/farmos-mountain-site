@@ -38,7 +38,7 @@
     },
     "farm-calendar-events": {
       "type": "git",
-      "url": "https://github.com/Farmer-Eds-Shed/farm_calendar_events"
+      "url": "https://github.com/farmer-eds-shed/farm_calendar_events"
     }
   },
   "require": {
