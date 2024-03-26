@@ -47,7 +47,7 @@
     "drupal/farm_crop_plan":" ^3.0@alpha",
     "fosten/farm_seed_asset_extended": "*",
     "drupal/google_api_client": "^4.2",
-    "farmer-eds-shed/farm_calendar_events": "^v0.0.1-alpha",
+    "farmer-eds-shed/farm_calendar_events": "dev-main",
     "drupal/farm_ledger": "^2.1"
   },
   "minimum-stability": "dev",
