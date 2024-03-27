@@ -48,7 +48,8 @@
     "fosten/farm_seed_asset_extended": "*",
     "drupal/google_api_client": "^4.2",
     "farmer-eds-shed/farm_calendar_events": "dev-main",
-    "drupal/farm_ledger": "^2.1"
+    "drupal/farm_ledger": "^2.1",
+    "drupal/farm_eggs": "^2.2.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
