@@ -36,6 +36,10 @@
       "type": "git",
       "url": "https://github.com/fosten/farm_seed_asset_extended.git"
     },
+    "farm-land-asset-extended": {
+      "type": "git",
+      "url": "https://github.com/fosten/farm_land_asset_extended.git"
+    },
     "farm-calendar-events": {
       "type": "git",
       "url": "https://github.com/farmer-eds-shed/farm_calendar_events"
@@ -46,6 +50,7 @@
     "wikimedia/composer-merge-plugin": "^2.0",
     "drupal/farm_crop_plan":" ^3.0@alpha",
     "fosten/farm_seed_asset_extended": "*",
+    "fosten/farm_land_asset_extended": "*",
     "drupal/google_api_client": "^4.2",
     "farmer-eds-shed/farm_calendar_events": "dev-main",
     "drupal/farm_ledger": "^2.1",
