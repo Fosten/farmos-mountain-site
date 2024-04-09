@@ -47,7 +47,7 @@ services:
         - traefik.http.routers.farmos-testing-api.entrypoints=websecure
         - traefik.http.routers.farmos-testing-api.tls=true
         - traefik.http.routers.farmos-testing-api.tls.certresolver=mydnschallenge
-        - traefik.http.routers.farmos-testing-api.service=farmos-testing-api
+        - traefik.http.routers.farmos-testing-api.service=farmos-testing
         - traefik.http.routers.farmos-testing-api.middlewares=gzip,cors,farmos-testing-ipwhitelist
 
 
