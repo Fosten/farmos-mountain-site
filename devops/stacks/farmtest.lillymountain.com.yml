@@ -27,11 +27,11 @@ services:
         # SERVICES: Main
         - traefik.http.services.farmos-testing.loadbalancer.server.port=80
         # MIDDLEWARES: Main
-        - traefik.http.middlewares.cors.headers.accesscontrolallowmethods=*
-        - traefik.http.middlewares.cors.headers.accesscontrolallowheaders=*
-        - traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=https://lillymountain.com,https://testing.lillymountain.com
-        - traefik.http.middlewares.cors.headers.accesscontrolmaxage=100
-        - traefik.http.middlewares.cors.headers.addvaryheader=true
+        - traefik.http.middlewares.cors-testing.headers.accesscontrolallowmethods=*
+        - traefik.http.middlewares.cors-testing.headers.accesscontrolallowheaders=*
+        - traefik.http.middlewares.cors-testing.headers.accesscontrolalloworiginlist=https://lillymountain.com,https://testing.lillymountain.com
+        - traefik.http.middlewares.cors-testing.headers.accesscontrolmaxage=100
+        - traefik.http.middlewares.cors-testing.headers.addvaryheader=true
         ## farmOS Testing Instance Access Authentication
         ## Defaults to admin:admin
         - traefik.http.middlewares.farmos-testing-auth.basicauth.users=admin:$$apr1$$uZPT5Fgu$$AmlIdamxT5ipBvPlsdfD70
@@ -42,14 +42,14 @@ services:
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-auth
+        - traefik.http.routers.farmos-testing.middlewares=gzip,cors-testing,farmos-testing-auth
         # HOSTS: API
         - traefik.http.routers.farmos-testing-api.rule=(Host(`farmtest.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmos-testing-api.entrypoints=websecure
         - traefik.http.routers.farmos-testing-api.tls=true
         - traefik.http.routers.farmos-testing-api.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing-api.service=farmos-testing
-        - traefik.http.routers.farmos-testing-api.middlewares=gzip,cors,farmos-testing-ipwhitelist
+        - traefik.http.routers.farmos-testing-api.middlewares=gzip,cors-testing,farmos-testing-ipwhitelist
 
 volumes:
   farmtest_default: {}
