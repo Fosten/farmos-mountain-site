@@ -33,6 +33,7 @@ services:
         - traefik.http.middlewares.cors.headers.addvaryheader=true
         ## farmOS Testing Instance Access Authentication
         ## Defaults to admin:admin
+        - traefik.http.middlewares.secured.chain.middlewares=farmos-testing-ipwhitelist,farmos-testing-auth
         - traefik.http.middlewares.farmos-testing-auth.basicauth.users=admin:$$apr1$$uZPT5Fgu$$AmlIdamxT5ipBvPlsdfD70
         - traefik.http.middlewares.farmos-testing-ipwhitelist.ipwhitelist.sourcerange=${API_IP_WHITELIST}
         # HOSTS: Main
@@ -41,7 +42,7 @@ services:
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-ipwhitelist,farmos-testing-auth
+        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,secured
 
 volumes:
   farmtest_default: {}
