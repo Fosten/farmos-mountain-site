@@ -33,7 +33,6 @@ services:
         - traefik.http.middlewares.cors.headers.addvaryheader=true
         ## farmOS Testing Instance Access Authentication
         ## Defaults to admin:admin
-        - traefik.http.middlewares.secured.chain.middlewares=farmos-testing-ipwhitelist,farmos-testing-auth
         - traefik.http.middlewares.farmos-testing-auth.basicauth.users=admin:$$apr1$$uZPT5Fgu$$AmlIdamxT5ipBvPlsdfD70
         - traefik.http.middlewares.farmos-testing-ipwhitelist.ipwhitelist.sourcerange=${API_IP_WHITELIST}
         # HOSTS: Main
@@ -42,7 +41,15 @@ services:
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,secured
+        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-auth
+        # HOSTS: API
+        - traefik.http.routers.farmos-testing-api.rule=(Host(`farmtest.lillymountain.com`) && PathPrefix(`/api/`))
+        - traefik.http.routers.farmos-testing-api.entrypoints=websecure
+        - traefik.http.routers.farmos-testing-api.tls=true
+        - traefik.http.routers.farmos-testing-api.tls.certresolver=mydnschallenge
+        - traefik.http.routers.farmos-testing-api.service=farmos-testing-api
+        - traefik.http.routers.farmos-testing-api.middlewares=gzip,cors,farmos-testing-ipwhitelist
+
 
 volumes:
   farmtest_default: {}
