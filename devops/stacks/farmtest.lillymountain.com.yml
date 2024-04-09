@@ -41,7 +41,7 @@ services:
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-auth,farmos-testing-ipwhitelist
+        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-ipwhitelist,farmos-testing-auth
 
 volumes:
   farmtest_default: {}
