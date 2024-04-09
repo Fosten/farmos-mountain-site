@@ -34,13 +34,14 @@ services:
         ## farmOS Testing Instance Access Authentication
         ## Defaults to admin:admin
         - traefik.http.middlewares.farmos-testing-auth.basicauth.users=admin:$$apr1$$uZPT5Fgu$$AmlIdamxT5ipBvPlsdfD70
+        - traefik.http.middlewares.farmos-testing-ipwhitelist.ipwhitelist.sourcerange=${API_IP_WHITELIST}
         # HOSTS: Main
         - traefik.http.routers.farmos-testing.rule=Host(`farmtest.lillymountain.com`)
         - traefik.http.routers.farmos-testing.entrypoints=websecure
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-auth
+        - traefik.http.routers.farmos-testing.middlewares=gzip,cors,farmos-testing-auth,farmos-testing-ipwhitelist
 
 volumes:
   farmtest_default: {}
