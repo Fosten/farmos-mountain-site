@@ -50,7 +50,7 @@
     },
     "farm-calendar-events": {
       "type": "git",
-      "url": "https://github.com/farmer-eds-shed/farm_calendar_events"
+      "url": "https://github.com/fosten/farm_calendar_events.git"
     }
   },
   "require": {
@@ -62,7 +62,7 @@
     "fosten/farm_structure_asset_extended": "*",
     "fosten/farm_equipment_asset_extended": "*",
     "drupal/google_api_client": "^4.2",
-    "farmer-eds-shed/farm_calendar_events": "dev-main",
+    "fosten/farm_calendar_events": "dev-bundleFields",
     "drupal/farm_ledger": "^2.1",
     "drupal/farm_eggs": "^2.2.0"
   },
