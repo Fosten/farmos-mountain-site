@@ -63,6 +63,7 @@
     "fosten/farm_structure_asset_extended": "*",
     "fosten/farm_equipment_asset_extended": "*",
     "farmer-eds-shed/farm_calendar_events": "dev-main",
+    "drupal/farmos_asset_link": "^1.0@alpha",
     "drupal/farm_crop_plan":" ^3.0@alpha",
     "drupal/farm_ledger": "^2.1",
     "drupal/farm_eggs": "^2.2.0"
