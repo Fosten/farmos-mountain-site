@@ -15,6 +15,7 @@ services:
     volumes:
       - farmdev_default:/opt/drupal/web/sites/default
       - "${HOME}/keys/:/opt/drupal/keys"
+      - "${HOME}/farmdev_private/:${HOME}/farmdev_private/"
     deploy:
       replicas: 1
       placement:
