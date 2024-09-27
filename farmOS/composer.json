@@ -28,10 +28,6 @@
       "type": "git",
       "url": "https://github.com/fosten/farm_mountain_module.git"
     },
-    "farm-csv-importer": {
-      "type": "git",
-      "url": "https://github.com/fosten/farm_mountain_csv_importer.git"
-    },
     "farm-seed-asset-extended": {
       "type": "git",
       "url": "https://github.com/fosten/farm_seed_asset_extended.git"
@@ -57,19 +53,22 @@
     "oomphinc/composer-installers-extender": "^2.0",
     "wikimedia/composer-merge-plugin": "^2.0",
     "drupal/dashboards": "^2.1",
-    "drupal/flood_control": "^2.3",
+    "drupal/flood_control": "^3.0",
     "drupal/smtp": "^1.4",
     "fosten/farm_seed_asset_extended": "*",
     "fosten/farm_land_asset_extended": "*",
     "fosten/farm_structure_asset_extended": "*",
     "fosten/farm_equipment_asset_extended": "*",
     "farmer-eds-shed/farm_calendar_events": "dev-main",
-    "drupal/farmos_asset_link": "^1.0@alpha",
     "drupal/farm_crop_plan":" ^3.0@alpha",
-    "drupal/farm_ledger": "^2.1",
-    "drupal/farm_eggs": "^2.2.0",
-    "drupal/farm_maple": "^2.1",
     "drupal/farm_project_plan": "^1.1",
+    "drupal/farm_grazing_plan": "^1.0@alpha",
+    "drupal/farmos_asset_link": "^1.0@alpha",
+    "drupal/farm_nrcs": "^2.2",
+    "drupal/farm_map_custom_layers": "^1.2",
+    "drupal/farm_ledger": "^2.1",
+    "drupal/farm_eggs": "^2.2",
+    "drupal/farm_maple": "^2.1",
     "drupal/farm_template": "^1.0@alpha"
   },
   "minimum-stability": "dev",
