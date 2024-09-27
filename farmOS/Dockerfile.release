@@ -1,5 +1,5 @@
-# Inherit from the farmOS 3.1.2 image on Docker Hub.
-FROM farmos/farmos:3.1.2
+# Inherit from the farmOS 3.3.1 image on Docker Hub.
+FROM farmos/farmos:3.3.1
 ARG FARM_CONFIG_EXISTS=1
 ARG FARM_MODULE_EXISTS=1
 
@@ -17,7 +17,7 @@ COPY --chown=www-data:www-data . .
 
 # Install composer.
 RUN composer config cache-dir $(mktemp -d)
-RUN composer require "farmos/farmos:3.1.2" --no-install
+RUN composer require "farmos/farmos:3.3.1" --no-install
 RUN if [ "$FARM_CONFIG_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_config:*" --no-install \
   ;fi
