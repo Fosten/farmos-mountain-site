@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 services:
   www:
     image: ghcr.io/fosten/farmos-mountain-site-3.x:${STACK_PARAM:-latest}
@@ -11,10 +11,11 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: ${DB_PORT}
     ports:
-      - '82:80'
+      - 82:80
     volumes:
       - farmtest_default:/opt/drupal/web/sites/default
-      - "${HOME}/keys/:/opt/drupal/keys"
+      - ${HOME}/keys/:/opt/drupal/keys
+      - ${HOME}/farmtest_private/:${HOME}/farmtest_private/
     deploy:
       replicas: 1
       placement:
