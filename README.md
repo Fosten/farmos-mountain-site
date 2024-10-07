@@ -71,11 +71,13 @@ This allows you to deploy directly to a Docker Swarm from Github Actions.
     - DB_HOST
     - DB_PASSWORD
     - DB_PORT
-    - ACME_EMAIL (if you're using LetsEncrypt SSL Certs)
-    - LINODE_TOKEN (if you're using Linode DNS Challenges)
+    - API_IP_ALLOWLIST
+    - HOME
     - PROD_TRAEFIK_HASHED_PASSWORD
     - TESTING_TRAEFIK_HASHED_PASSWORD
     - DEV_TRAEFIK_HASHED_PASSWORD
+    - ACME_EMAIL (if you're using LetsEncrypt SSL Certs)
+    - LINODE_TOKEN (if you're using Linode DNS Challenges)
 
 - Setup Github Variables
   - DEPLOY_HOST

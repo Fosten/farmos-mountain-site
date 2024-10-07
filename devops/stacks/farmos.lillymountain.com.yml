@@ -36,7 +36,7 @@ services:
         ## farmOS Testing Instance Access Authentication
         ## Change the auth password here
         - traefik.http.middlewares.farmos-auth.basicauth.users=admin:${PROD_TRAEFIK_HASHED_PASSWORD}
-        - traefik.http.middlewares.farmos-ipallowlist.ipallowlist.sourcerange=${API_IP_WHITELIST}
+        - traefik.http.middlewares.farmos-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
         # HOSTS: Main
         - traefik.http.routers.farmos.rule=Host(`farmos.lillymountain.com`)
         - traefik.http.routers.farmos.entrypoints=websecure
