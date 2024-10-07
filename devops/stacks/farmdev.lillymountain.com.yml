@@ -34,8 +34,8 @@ services:
         - traefik.http.middlewares.cors-dev.headers.accesscontrolmaxage=100
         - traefik.http.middlewares.cors-dev.headers.addvaryheader=true
         ## farmOS Development Instance Access Authentication
-        ## Defaults to admin:admin
-        - traefik.http.middlewares.farmos-dev-auth.basicauth.users=admin:$$apr1$$uZPT5Fgu$$AmlIdamxT5ipBvPlsdfD70
+        ## Change the auth password here
+        - traefik.http.middlewares.farmos-dev-auth.basicauth.users=admin:${DEV_TRAEFIK_HASHED_PASSWORD}
         - traefik.http.middlewares.farmos-dev-ipallowlist.ipallowlist.sourcerange=${API_IP_WHITELIST}
         # HOSTS: Main
         - traefik.http.routers.farmos-dev.rule=Host(`farmdev.lillymountain.com`)
