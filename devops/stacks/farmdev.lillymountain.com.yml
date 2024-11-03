@@ -37,14 +37,14 @@ services:
         - traefik.http.middlewares.farmos-dev-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
         # HOSTS: Main
         - traefik.http.routers.farmos-dev.rule=Host(`farmdev.lillymountain.com`)
-        - traefik.http.routers.farmos-dev.entrypoints=websecure
+        - traefik.http.routers.farmos-dev.entrypoints=https
         - traefik.http.routers.farmos-dev.tls=true
         - traefik.http.routers.farmos-dev.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-dev.service=farmos-dev
         - traefik.http.routers.farmos-dev.middlewares=gzip,cors-dev,farmos-dev-auth
         # HOSTS: API
         - traefik.http.routers.farmos-dev-api.rule=(Host(`farmdev.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
-        - traefik.http.routers.farmos-dev-api.entrypoints=websecure
+        - traefik.http.routers.farmos-dev-api.entrypoints=https
         - traefik.http.routers.farmos-dev-api.tls=true
         - traefik.http.routers.farmos-dev-api.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-dev-api.service=farmos-dev
