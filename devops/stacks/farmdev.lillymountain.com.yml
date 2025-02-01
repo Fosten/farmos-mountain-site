@@ -28,7 +28,7 @@ services:
         # MIDDLEWARES: Main
         - traefik.http.middlewares.cors-dev.headers.accesscontrolallowmethods=*
         - traefik.http.middlewares.cors-dev.headers.accesscontrolallowheaders=*
-        - traefik.http.middlewares.cors-dev.headers.accesscontrolalloworiginlist=https://plone.duckdns.org:5443
+        - traefik.http.middlewares.cors-dev.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
         - traefik.http.middlewares.cors-dev.headers.accesscontrolmaxage=100
         - traefik.http.middlewares.cors-dev.headers.addvaryheader=true
         ## farmOS Development Instance Access Authentication

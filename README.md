@@ -71,6 +71,7 @@ This allows you to deploy directly to a Docker Swarm from Github Actions.
     - DB_HOST
     - DB_PASSWORD
     - DB_PORT
+    - CORS_ALLOW_ORIGIN
     - API_IP_ALLOWLIST
     - HOME
     - PROD_TRAEFIK_HASHED_PASSWORD

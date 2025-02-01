@@ -28,7 +28,7 @@ services:
         # MIDDLEWARES: Main
         - traefik.http.middlewares.cors-testing.headers.accesscontrolallowmethods=*
         - traefik.http.middlewares.cors-testing.headers.accesscontrolallowheaders=*
-        - traefik.http.middlewares.cors-testing.headers.accesscontrolalloworiginlist=https://lillymountain.com,https://testing.lillymountain.com
+        - traefik.http.middlewares.cors-testing.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
         - traefik.http.middlewares.cors-testing.headers.accesscontrolmaxage=100
         - traefik.http.middlewares.cors-testing.headers.addvaryheader=true
         ## farmOS Testing Instance Access Authentication
