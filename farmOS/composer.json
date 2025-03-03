@@ -52,6 +52,7 @@
     "drupal/flood_control": "^3.0",
     "drupal/smtp": "^1.4",
     "drupal/httpswww": "^2.1",
+    "drupal/simple_oauth_password_grant": "^2.0",
     "fosten/farm_seed_asset_extended": "*",
     "fosten/farm_land_asset_extended": "*",
     "fosten/farm_structure_asset_extended": "*",
