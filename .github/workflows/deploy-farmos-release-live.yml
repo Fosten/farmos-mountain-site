@@ -8,7 +8,7 @@ defaults:
     working-directory: ./farmOS
 
 env:
-  IMAGE_NAME_PREFIX: ghcr.io/fosten/farmos-mountain-site-3.3.3
+  IMAGE_NAME_PREFIX: ghcr.io/fosten/farmos-mountain-site-3.4.1
 
 jobs:
   build:
