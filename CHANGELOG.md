@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.3.0 (Unreleased)
 - Fixed [Issue #3511488: Refreshed access_token is missing scope with league/oauth2-server ^9](https://www.drupal.org/project/simple_oauth_password_grant/issues/3511488) [fosten]
-- Bump production from 3.3.1 to 3.4.1 [fosten]
+- Bump production from 3.3.1 to 3.4.3 [fosten]
 - Remove farm_equipment_asset_extended [fosten]
 - Add CORS_ALLOW_ORIGIN env var [fosten]
 - Upgrade to PHPStan level 5 [fosten]
