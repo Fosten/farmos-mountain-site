@@ -41,14 +41,14 @@ services:
         - traefik.http.routers.farmos.tls=true
         - traefik.http.routers.farmos.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos.service=farmos
-        - traefik.http.routers.farmos.middlewares=gzip,cors,farmos-auth
+        - traefik.http.routers.farmos.middlewares=cors,farmos-auth
         # HOSTS: API
         - traefik.http.routers.farmos-api.rule=(Host(`farmos.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmos-api.entrypoints=https
         - traefik.http.routers.farmos-api.tls=true
         - traefik.http.routers.farmos-api.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-api.service=farmos
-        - traefik.http.routers.farmos-api.middlewares=gzip,cors,farmos-ipallowlist
+        - traefik.http.routers.farmos-api.middlewares=cors,farmos-ipallowlist
 
 volumes:
   farmrelease_default: {}

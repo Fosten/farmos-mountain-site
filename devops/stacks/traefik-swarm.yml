@@ -8,6 +8,7 @@ services:
       - --log.filePath=/var/log/traefik/traefik.log
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
+      - --entrypoints.https.http.middlewares=gzip
       - --providers.docker
       - --providers.docker.exposedbydefault=false
       - --providers.docker.swarmmode=true
@@ -62,7 +63,7 @@ services:
         - traefik.http.routers.traefik.tls=true
         - traefik.http.routers.traefik.tls.certresolver=mydnschallenge
         - traefik.http.routers.traefik.entrypoints=https
-        - traefik.http.routers.traefik.middlewares=gzip,authtraefik
+        - traefik.http.routers.traefik.middlewares=authtraefik
         ## Basic Authentication
         ### To create user:password pair, it's possible to use this command:
         ### echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g
@@ -81,6 +82,7 @@ services:
 
         # middleware compress
         - traefik.http.middlewares.gzip.compress=true
+        - traefik.http.middlewares.gzip.compress.excludedcontenttypes=image/png,image/jpeg,font/woff2
 
 networks:
   traefik-public:

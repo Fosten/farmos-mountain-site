@@ -41,14 +41,14 @@ services:
         - traefik.http.routers.farmos-testing.tls=true
         - traefik.http.routers.farmos-testing.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing.service=farmos-testing
-        - traefik.http.routers.farmos-testing.middlewares=gzip,cors-testing,farmos-testing-auth
+        - traefik.http.routers.farmos-testing.middlewares=cors-testing,farmos-testing-auth
         # HOSTS: API
         - traefik.http.routers.farmos-testing-api.rule=(Host(`farmtest.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmos-testing-api.entrypoints=https
         - traefik.http.routers.farmos-testing-api.tls=true
         - traefik.http.routers.farmos-testing-api.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-testing-api.service=farmos-testing
-        - traefik.http.routers.farmos-testing-api.middlewares=gzip,cors-testing,farmos-testing-ipallowlist
+        - traefik.http.routers.farmos-testing-api.middlewares=cors-testing,farmos-testing-ipallowlist
 
 volumes:
   farmtest_default: {}
