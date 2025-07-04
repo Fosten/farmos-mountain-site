@@ -25,15 +25,15 @@ services:
         - traefik.constraint-label=public
         # SERVICES: Main
         - traefik.http.services.farmos.loadbalancer.server.port=80
-        # MIDDLEWARES: Main
-        - traefik.http.middlewares.cors.headers.accesscontrolallowmethods=*
-        - traefik.http.middlewares.cors.headers.accesscontrolallowheaders=*
-        - traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
-        - traefik.http.middlewares.cors.headers.accesscontrolmaxage=100
-        - traefik.http.middlewares.cors.headers.addvaryheader=true
-        ## farmOS Testing Instance Access Authentication
-        ## Change the auth password here
+        # MIDDLEWARES: farmos-cors
+        - traefik.http.middlewares.farmos-cors.headers.accesscontrolallowmethods=*
+        - traefik.http.middlewares.farmos-cors.headers.accesscontrolallowheaders=*
+        - traefik.http.middlewares.farmos-cors.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
+        - traefik.http.middlewares.farmos-cors.headers.accesscontrolmaxage=100
+        - traefik.http.middlewares.farmos-cors.headers.addvaryheader=true
+        # MIDDLEWARES: farmos-auth
         - traefik.http.middlewares.farmos-auth.basicauth.users=admin:${PROD_TRAEFIK_HASHED_PASSWORD}
+        # MIDDLEWARES: farmos-ipallowlist
         - traefik.http.middlewares.farmos-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
         # HOSTS: Main
         - traefik.http.routers.farmos.rule=Host(`farmos.lillymountain.com`)
@@ -41,14 +41,14 @@ services:
         - traefik.http.routers.farmos.tls=true
         - traefik.http.routers.farmos.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos.service=farmos
-        - traefik.http.routers.farmos.middlewares=cors,farmos-auth
+        - traefik.http.routers.farmos.middlewares=farmos-cors,farmos-auth
         # HOSTS: API
         - traefik.http.routers.farmos-api.rule=(Host(`farmos.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmos-api.entrypoints=https
         - traefik.http.routers.farmos-api.tls=true
         - traefik.http.routers.farmos-api.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos-api.service=farmos
-        - traefik.http.routers.farmos-api.middlewares=cors,farmos-ipallowlist
+        - traefik.http.routers.farmos-api.middlewares=farmos-cors,farmos-ipallowlist
 
 volumes:
   farmrelease_default: {}

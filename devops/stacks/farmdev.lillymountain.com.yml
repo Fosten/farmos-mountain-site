@@ -24,31 +24,31 @@ services:
         - traefik.swarm.network=traefik-public
         - traefik.constraint-label=public
         # SERVICES: Main
-        - traefik.http.services.farmos-dev.loadbalancer.server.port=80
-        # MIDDLEWARES: Main
-        - traefik.http.middlewares.cors-dev.headers.accesscontrolallowmethods=*
-        - traefik.http.middlewares.cors-dev.headers.accesscontrolallowheaders=*
-        - traefik.http.middlewares.cors-dev.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
-        - traefik.http.middlewares.cors-dev.headers.accesscontrolmaxage=100
-        - traefik.http.middlewares.cors-dev.headers.addvaryheader=true
-        ## farmOS Development Instance Access Authentication
-        ## Change the auth password here
-        - traefik.http.middlewares.farmos-dev-auth.basicauth.users=admin:${DEV_TRAEFIK_HASHED_PASSWORD}
-        - traefik.http.middlewares.farmos-dev-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
+        - traefik.http.services.farmdev.loadbalancer.server.port=80
+        # MIDDLEWARES: farmdev-cors
+        - traefik.http.middlewares.farmdev-cors.headers.accesscontrolallowmethods=*
+        - traefik.http.middlewares.farmdev-cors.headers.accesscontrolallowheaders=*
+        - traefik.http.middlewares.farmdev-cors.headers.accesscontrolalloworiginlist=${CORS_ALLOW_ORIGIN}
+        - traefik.http.middlewares.farmdev-cors.headers.accesscontrolmaxage=100
+        - traefik.http.middlewares.farmdev-cors.headers.addvaryheader=true
+        # MIDDLEWARES: farmdev-auth
+        - traefik.http.middlewares.farmdev-auth.basicauth.users=admin:${DEV_TRAEFIK_HASHED_PASSWORD}
+        # MIDDLEWARES: farmdev-ipallowlist
+        - traefik.http.middlewares.farmdev-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
         # HOSTS: Main
-        - traefik.http.routers.farmos-dev.rule=Host(`farmdev.lillymountain.com`)
-        - traefik.http.routers.farmos-dev.entrypoints=https
-        - traefik.http.routers.farmos-dev.tls=true
-        - traefik.http.routers.farmos-dev.tls.certresolver=mydnschallenge
-        - traefik.http.routers.farmos-dev.service=farmos-dev
-        - traefik.http.routers.farmos-dev.middlewares=cors-dev,farmos-dev-auth
+        - traefik.http.routers.farmdev.rule=Host(`farmdev.lillymountain.com`)
+        - traefik.http.routers.farmdev.entrypoints=https
+        - traefik.http.routers.farmdev.tls=true
+        - traefik.http.routers.farmdev.tls.certresolver=mydnschallenge
+        - traefik.http.routers.farmdev.service=farmdev
+        - traefik.http.routers.farmdev.middlewares=farmdev-cors,farmdev-auth
         # HOSTS: API
-        - traefik.http.routers.farmos-dev-api.rule=(Host(`farmdev.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
-        - traefik.http.routers.farmos-dev-api.entrypoints=https
-        - traefik.http.routers.farmos-dev-api.tls=true
-        - traefik.http.routers.farmos-dev-api.tls.certresolver=mydnschallenge
-        - traefik.http.routers.farmos-dev-api.service=farmos-dev
-        - traefik.http.routers.farmos-dev-api.middlewares=cors-dev,farmos-dev-ipallowlist
+        - traefik.http.routers.farmdev-api.rule=(Host(`farmdev.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
+        - traefik.http.routers.farmdev-api.entrypoints=https
+        - traefik.http.routers.farmdev-api.tls=true
+        - traefik.http.routers.farmdev-api.tls.certresolver=mydnschallenge
+        - traefik.http.routers.farmdev-api.service=farmdev
+        - traefik.http.routers.farmdev-api.middlewares=farmdev-cors,farmdev-ipallowlist
 volumes:
   farmdev_default: {}
 
