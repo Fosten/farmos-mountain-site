@@ -35,13 +35,24 @@ services:
         - traefik.http.middlewares.farmtest-auth.basicauth.users=admin:${TESTING_TRAEFIK_HASHED_PASSWORD}
         # MIDDLEWARES: farmtest-ipallowlist
         - traefik.http.middlewares.farmtest-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
+        # MIDDLEWARES: farmtest-redirect-showcore
+        - traefik.http.middlewares.farmtest-redirect-showcore.redirectregex.regex=^(https?://[^/]+)(\\?.*showcore.*)$$
+        - traefik.http.middlewares.farmtest-redirect-showcore.redirectregex.replacement=$${1}/user/login$${2}
+        - traefik.http.middlewares.farmtest-redirect-showcore.redirectregex.permanent=true
         # HOSTS: Main
         - traefik.http.routers.farmtest.rule=Host(`farmtest.lillymountain.com`)
         - traefik.http.routers.farmtest.entrypoints=https
         - traefik.http.routers.farmtest.tls=true
         - traefik.http.routers.farmtest.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmtest.service=farmtest
-        - traefik.http.routers.farmtest.middlewares=farmtest-cors,farmtest-auth
+        - traefik.http.routers.farmtest.middlewares=farmtest-cors,farmtest-redirect-showcore
+        # HOSTS: Showcore Login
+        - traefik.http.routers.farmtest-showcore.rule=(Host(`farmtest.lillymountain.com`) && PathPrefix(`/user/login`) && Query(`showcore`))
+        - traefik.http.routers.farmtest-showcore.entrypoints=https
+        - traefik.http.routers.farmtest-showcore.tls=true
+        - traefik.http.routers.farmtest-showcore.tls.certresolver=mydnschallenge
+        - traefik.http.routers.farmtest-showcore.service=farmtest
+        - traefik.http.routers.farmtest-showcore.middlewares=farmtest-cors,farmtest-auth
         # HOSTS: API
         - traefik.http.routers.farmtest-api.rule=(Host(`farmtest.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmtest-api.entrypoints=https

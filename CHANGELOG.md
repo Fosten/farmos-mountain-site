@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.3.0 (Unreleased)
 
+- Enable traefik basicauth on redirected showcore login [fosten]
 - Rename traefik routers, services, middlewares [fosten]
 - Remove duplicate gzip middleware references [fosten]
 - Add Keycloak [fosten]

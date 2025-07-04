@@ -35,13 +35,24 @@ services:
         - traefik.http.middlewares.farmos-auth.basicauth.users=admin:${PROD_TRAEFIK_HASHED_PASSWORD}
         # MIDDLEWARES: farmos-ipallowlist
         - traefik.http.middlewares.farmos-ipallowlist.ipallowlist.sourcerange=${API_IP_ALLOWLIST}
+        # MIDDLEWARES: farmos-redirect-showcore
+        - traefik.http.middlewares.farmos-redirect-showcore.redirectregex.regex=^(https?://[^/]+)(\\?.*showcore.*)$$
+        - traefik.http.middlewares.farmos-redirect-showcore.redirectregex.replacement=$${1}/user/login$${2}
+        - traefik.http.middlewares.farmos-redirect-showcore.redirectregex.permanent=true
         # HOSTS: Main
         - traefik.http.routers.farmos.rule=Host(`farmos.lillymountain.com`)
         - traefik.http.routers.farmos.entrypoints=https
         - traefik.http.routers.farmos.tls=true
         - traefik.http.routers.farmos.tls.certresolver=mydnschallenge
         - traefik.http.routers.farmos.service=farmos
-        - traefik.http.routers.farmos.middlewares=farmos-cors,farmos-auth
+        - traefik.http.routers.farmos.middlewares=farmos-cors,farmos-redirect-showcore
+        # HOSTS: Showcore Login
+        - traefik.http.routers.farmos-showcore.rule=(Host(`farmos.lillymountain.com`) && PathPrefix(`/user/login`) && Query(`showcore`))
+        - traefik.http.routers.farmos-showcore.entrypoints=https
+        - traefik.http.routers.farmos-showcore.tls=true
+        - traefik.http.routers.farmos-showcore.tls.certresolver=mydnschallenge
+        - traefik.http.routers.farmos-showcore.service=farmos
+        - traefik.http.routers.farmos-showcore.middlewares=farmos-cors,farmos-auth
         # HOSTS: API
         - traefik.http.routers.farmos-api.rule=(Host(`farmos.lillymountain.com`) && (PathPrefix(`/api/`) || PathPrefix(`/oauth/`)))
         - traefik.http.routers.farmos-api.entrypoints=https
