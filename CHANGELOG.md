@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.3.0 (Unreleased)
+## [Unreleased]
+- Add footer links to CHANGELOG.md [fosten]
+
+## [1.3.0] (2025-07-04)
 
 - Enable traefik basicauth on redirected showcore login [fosten]
 - Rename traefik routers, services, middlewares [fosten]
@@ -18,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade to PHPStan level 5 [fosten]
 - Change traefik.docker to traefik.swarm [fosten]
 
-## 1.2.0 (2024-12-16)
+## [1.2.0] (2024-12-16)
 
 - Remove minor GHA releases from dependabot [fosten]
 - Add httpswww [fosten]
@@ -29,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add smtp, farm_maple, farm_project_plan, farm_template modules [fosten]
 - Bump production version from 3.1.2 to 3.3.1 [fosten]
 
-## 1.1.0 (2024-08-28)
+## [1.1.0] (2024-08-28)
 
 - Persistent volume private file path [fosten]
 - Add dependabot [fosten]
@@ -37,8 +40,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add drupal/flood_control [fosten]
 - Add drupal/dashboards [fosten]
 
-## 1.0.0 (2024-04-09)
+## [1.0.0] (2024-04-09)
 
+- Rename cors middleware [fosten]
 - Bind-mount keys volume [fosten]
 - Add second traefik router for API and OAuth [fosten]
 - Chain auth/whitelist middlewares [fosten]
@@ -53,6 +57,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add farm_crop_plan [fosten]
 - Bump farmOS production version to 3.1.2 [fosten]
 
-## 0.1.0 (2023-12-06)
+## [0.1.0] (2023-12-06)
 
 - Initial commit [fosten]
+
+[Unreleased]: https://github.com/Fosten/farmos-mountain-site/compare/1.3.0...main
+[1.3.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.3.0
+[1.2.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.2.0
+[1.1.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.1.0
+[1.0.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.0.0
+[0.1.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/0.1.0
+[fosten]: https://github.com/Fosten
