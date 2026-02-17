@@ -52,7 +52,7 @@
     "drupal/flood_control": "^3.0",
     "drupal/smtp": "^1.4",
     "drupal/httpswww": "^2.1",
-    "drupal/simple_oauth": "^6.0",
+    "drupal/simple_oauth": "6.0.0",
     "drupal/simple_oauth_password_grant": "^2.1",
     "drupal/keycloak": "^2.2",
     "fosten/farm_seed_asset_extended": "*",

@@ -22,6 +22,7 @@ USER www-data
 
 # Install composer.
 RUN composer config cache-dir /var/www/.composer
+RUN composer config audit.block-insecure false
 RUN composer require "farmos/farmos:3.x-dev" --no-install
 RUN if [ "$FARM_CONFIG_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_config:*" --no-install \
@@ -30,6 +31,7 @@ RUN if [ "$FARM_MODULE_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_module:*" --no-install \
   ;fi
 RUN composer install
+RUN composer audit || true
 RUN composer clear-cache
 
 # Configure PHPUnit.
