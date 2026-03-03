@@ -90,7 +90,7 @@ Included are various GHA workflows using different triggers for various purposes
 
 ##### Build farmOS images for Local Development
 - workflow_dispatch = Manually Trigger Workflows from GHA
-  - build-farmos-dev = Builds a custom 3.x-dev image for local development
+  - build-farmos-dev = Builds a custom 4.x-dev image for local development
   - build-farmos-branch = Builds a custom 3.x image for testing of the default_branch
   - build-farmos-release = Builds a custom 3.5.1 image for production
 
