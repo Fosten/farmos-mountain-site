@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Pin simple_oauth 6.1.0 [fosten]
 - Remove farm_project_plan, farm_template [fosten]
 - Bump farm_eggs, farm_maple, farm_ncrs to ^3.0 [fosten]
 - Test farmOS-4.x branch for farm_calendar_events [fosten]
