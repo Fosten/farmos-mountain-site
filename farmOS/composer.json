@@ -60,15 +60,13 @@
     "fosten/farm_structure_asset_extended": "*",
     "farmer-eds-shed/farm_calendar_events": "dev-farmOS-4.x",
     "drupal/farm_crop_plan":" ^3.0@alpha",
-    "drupal/farm_project_plan": "^1.1",
     "drupal/farm_grazing_plan": "^1.0@alpha",
     "drupal/farmos_asset_link": "^1.0@alpha",
     "drupal/farm_nrcs": "^3.0",
     "drupal/farm_map_custom_layers": "^1.2",
     "drupal/farm_ledger": "^2.1",
     "drupal/farm_eggs": "^3.0",
-    "drupal/farm_maple": "^3.0",
-    "drupal/farm_template": "^1.0@alpha"
+    "drupal/farm_maple": "^3.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
