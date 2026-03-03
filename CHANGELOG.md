@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Bump farm_eggs, farm_maple, farm_ncrs to ^3.0 [fosten]
 - Test farmOS-4.x branch for farm_calendar_events [fosten]
 - Force root user for system package installation in Dockerfiles [fosten]
 - Bump development from 3.x to 4.x [fosten]
