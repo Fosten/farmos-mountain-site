@@ -41,8 +41,8 @@
       "url": "https://github.com/fosten/farm_structure_asset_extended.git"
     },
     "farm-calendar-events": {
-      "type": "git",
-      "url": "https://github.com/farmer-eds-shed/farm_calendar_events"
+      "type": "vcs",
+      "url": "https://github.com/fosten/farm_calendar_events"
     }
   },
   "require": {
@@ -58,7 +58,7 @@
     "fosten/farm_seed_asset_extended": "*",
     "fosten/farm_land_asset_extended": "*",
     "fosten/farm_structure_asset_extended": "*",
-    "farmer-eds-shed/farm_calendar_events": "dev-main",
+    "farmer-eds-shed/farm_calendar_events": "dev-farmOS-4.x",
     "drupal/farm_crop_plan":" ^3.0@alpha",
     "drupal/farm_project_plan": "^1.1",
     "drupal/farm_grazing_plan": "^1.0@alpha",
