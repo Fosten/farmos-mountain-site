@@ -3,6 +3,9 @@ FROM farmos/farmos:4.x-dev
 ARG FARM_CONFIG_EXISTS=1
 ARG FARM_MODULE_EXISTS=1
 
+# Force root user for system package installation
+USER root
+
 # Install `jq` to help in extracting the farmOS version below.
 RUN apt-get update && apt-get install -y jq
 
