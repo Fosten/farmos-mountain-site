@@ -91,7 +91,7 @@ Included are various GHA workflows using different triggers for various purposes
 ##### Build farmOS images for Local Development
 - workflow_dispatch = Manually Trigger Workflows from GHA
   - build-farmos-dev = Builds a custom 4.x-dev image for local development
-  - build-farmos-branch = Builds a custom 3.x image for testing of the default_branch
+  - build-farmos-branch = Builds a custom 4.x image for testing of the default_branch
   - build-farmos-release = Builds a custom 3.5.1 image for production
 
 ##### Deploy Traefik Reverse Proxy to Remote Server
@@ -100,10 +100,10 @@ Included are various GHA workflows using different triggers for various purposes
 
 ##### Deploy farmOS to Remote Server
 - push = Push a commit with changes to any file in the farmOS directory
-  - deploy-farmos-dev = Builds & deploys a custom 3.x image for local development
+  - deploy-farmos-dev = Builds & deploys a custom 4.x-dev image for local development
 
-- nightly = Builds and deploys against the latest 3.x release
-  - deploy-farmos-branch-testing = Builds & deploys a custom 3.x image for testing of the default_branch
+- nightly = Builds and deploys against the latest 4.x release
+  - deploy-farmos-branch-testing = Builds & deploys a custom 4.x image for testing of the default_branch
 
 - tags = Tag a release of farmos-mountain-site
   - deploy-farmos-release-live = Builds & deploys a custom 3.5.1 image for production
@@ -111,8 +111,8 @@ Included are various GHA workflows using different triggers for various purposes
 ##### Re-deploy farmOS to Remote Server
 
 - workflow_dispatch = Manually Trigger Workflows from GHA
-  - redeploy-farmos-dev = Redeploys a custom 3.x image (without rebuild) for development
-  - redeploy-farmos-branch-testing = Redeploys a custom 3.x image (without rebuild) for testing
+  - redeploy-farmos-dev = Redeploys a custom 4.x-dev image (without rebuild) for development
+  - redeploy-farmos-branch-testing = Redeploys a custom 4.x image (without rebuild) for testing
   - redeploy-farmos-release-live = Redeploys a custom 3.5.1 image (without rebuild) for production
 
 Voila! Your farmOS site(s) should be live and kicking! 🎉

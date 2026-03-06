@@ -16,7 +16,7 @@ services:
   www:
     depends_on:
       - db
-    image: ghcr.io/fosten/farmos-mountain-site-3.x:${STACK_PARAM:-latest}
+    image: ghcr.io/fosten/farmos-mountain-site-4.x:${STACK_PARAM:-latest}
     networks:
       - farmos-private-branch
     volumes:
