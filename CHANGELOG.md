@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Bump farm_ledger to ^3.0 [fosten]
 - Bump testing from 3.x to 4.x [fosten]
 - Pin simple_oauth 6.1.0 [fosten]
 - Remove farm_project_plan, farm_template [fosten]

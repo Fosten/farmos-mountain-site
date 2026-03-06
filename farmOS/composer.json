@@ -64,7 +64,7 @@
     "drupal/farmos_asset_link": "^1.0@alpha",
     "drupal/farm_nrcs": "^3.0",
     "drupal/farm_map_custom_layers": "^1.2",
-    "drupal/farm_ledger": "^2.1",
+    "drupal/farm_ledger": "^3.0",
     "drupal/farm_eggs": "^3.0",
     "drupal/farm_maple": "^3.0"
   },
