@@ -42,7 +42,8 @@
     },
     "farm-calendar-events": {
       "type": "vcs",
-      "url": "https://github.com/fosten/farm_calendar_events"
+      "url": "https://github.com/fosten/farm_calendar_events.git",
+      "ref": "drupal_11"
     }
   },
   "require": {
@@ -58,7 +59,7 @@
     "fosten/farm_seed_asset_extended": "*",
     "fosten/farm_land_asset_extended": "*",
     "fosten/farm_structure_asset_extended": "*",
-    "farmer-eds-shed/farm_calendar_events": "dev-farmOS-4.x",
+    "farmer-eds-shed/farm_calendar_events": "dev-drupal_11",
     "drupal/farm_crop_plan":" ^3.0@alpha",
     "drupal/farm_grazing_plan": "^1.0@alpha",
     "drupal/farmos_asset_link": "^1.0@alpha",

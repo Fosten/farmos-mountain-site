@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Test drupal_11 branch for farm_calendar_events [fosten]
 - Disable strict PHPDoc type certainty in PHPStan [fosten]
 - Bump farm_ledger to ^3.0 [fosten]
 - Bump testing from 3.x to 4.x [fosten]
