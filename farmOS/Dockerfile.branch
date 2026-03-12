@@ -21,7 +21,7 @@ COPY --chown=www-data:www-data . .
 # Install composer.
 RUN composer config cache-dir $(mktemp -d)
 RUN composer config audit.block-insecure false
-RUN composer require "farmos/farmos:3.5.1" --no-install
+RUN composer require "farmos/farmos:4.x" --no-install
 RUN if [ "$FARM_CONFIG_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_config:*" --no-install \
   ;fi
