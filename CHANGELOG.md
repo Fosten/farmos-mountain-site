@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Bump production from 3.5.1 to 4.0.0-beta4 [fosten]
 - Install composer as www-data user for testing and production [fosten]
 - Unpin farmos from 3.5.1 to 4.x in testing [fosten]
 - Disabled PHPStan warnings for unmatched ignored errors [fosten]
