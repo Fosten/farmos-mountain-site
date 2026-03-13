@@ -10,7 +10,7 @@ USER root
 RUN apt-get update && apt-get install -y jq
 
 # Replace exisiting farmOS codebase.
-RUN rm -r /opt/drupal /var/farmOS/* && chown www-data:www-data /var/farmOS
+RUN rm -r /opt/drupal /var/farmOS/* && chown -R www-data:www-data /var/farmOS
 WORKDIR /var/farmOS
 COPY --chown=www-data:www-data . .
 # Add Configurartions for PHP CodeSniffer, PHPStan, PHPUnit.
@@ -62,6 +62,9 @@ USER root
 # Copy codebase into /opt/drupal.
 RUN chown -R www-data:www-data /var/farmOS/web/sites
 RUN cp -rp /var/farmOS /opt/drupal
+
+# Change back to the www-user.
+USER www-data
 
 WORKDIR /opt/drupal
 CMD ["apache2-foreground"]

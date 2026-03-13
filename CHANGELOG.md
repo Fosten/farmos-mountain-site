@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Install composer as www-data user for testing and production [fosten]
 - Unpin farmos from 3.5.1 to 4.x in testing [fosten]
 - Disabled PHPStan warnings for unmatched ignored errors [fosten]
 - Test drupal_11 branch for farm_calendar_events [fosten]
