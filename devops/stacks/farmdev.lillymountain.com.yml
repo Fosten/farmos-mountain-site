@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   www:
     image: ghcr.io/fosten/farmos-mountain-site-4.x-dev:${STACK_PARAM:-latest}
