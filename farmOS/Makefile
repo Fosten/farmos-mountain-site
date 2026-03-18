@@ -28,15 +28,15 @@ help: ## This help message
 
 .PHONY: install
 install:  ## Local Install farmOS Release
-	docker compose -f ../devops/stacks/farmos-local-release.yml up -d
+	docker compose -f ../devops/stacks/farmos-local-release.yml --project-directory . up -d --build
 
 .PHONY: install-branch
 install-branch:  ## Local Install farmOS Branch
-	docker compose -f ../devops/stacks/farmos-local-branch.yml up -d
+	docker compose -f ../devops/stacks/farmos-local-branch.yml --project-directory . up -d --build
 
 .PHONY: install-dev
 install-dev:  ## Local Install farmOS Development
-	docker compose -f ../devops/stacks/farmos-local-dev.yml up -d
+	docker compose -f ../devops/stacks/farmos-local-dev.yml --project-directory . up -d --build
 
 .PHONY: proxy
 proxy:  ## Remote Deploy Traefik

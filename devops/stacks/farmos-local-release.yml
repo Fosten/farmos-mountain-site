@@ -1,10 +1,50 @@
 services:
-  db:
+  init-www:
+    image: farmos/farmos:latest
+    user: root
+    volumes:
+      - './local/release-www:/target'
+    command: >
+      sh -c "
+        if [ ! -f /target/sites/default/settings.php ]; then
+          cp -rp /opt/drupal/web/. /target/;
+          cp /target/sites/default/default.settings.php /target/sites/default/settings.php;
+        fi &&
+        chown -R 1000:33 /target &&
+        chmod -R 775 /target || true;
+      "
+
+  init-db-configs:
     image: postgres:17
+    user: root
+    volumes:
+      - './local/release-db-configs:/target'
+    command: >
+      sh -c "
+        if [ ! -s /target/pg_hba.conf ]; then
+          mkdir -p /tmp/pgdata && chown postgres /tmp/pgdata &&
+          su postgres -c 'initdb -D /tmp/pgdata' > /dev/null &&
+          cp /tmp/pgdata/postgresql.conf /target/postgresql.conf &&
+          cp /tmp/pgdata/pg_hba.conf /target/pg_hba.conf &&
+          echo 'host    all             all             0.0.0.0/0       trust' >> /target/pg_hba.conf &&
+          echo 'listen_addresses = *' >> /target/postgresql.conf;
+        fi &&
+        chown -R 1000:33 /target &&
+        chmod -R 664 /target/*.conf || true;
+      "
+
+  release-db:
+    image: postgres:17
+    user: postgres
+    depends_on:
+      init-db-configs:
+        condition: service_completed_successfully
     networks:
       - farmos-private-release
     volumes:
-      - './release-db:/var/lib/postgresql/data'
+      - 'release-db:/var/lib/postgresql/data'
+      - ./local/release-db-configs/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./local/release-db-configs/pg_hba.conf:/etc/postgresql/pg_hba.conf
     ports:
       - '5432:5432'
     environment:
@@ -12,24 +52,32 @@ services:
       POSTGRES_PASSWORD: farm
       POSTGRES_DB: farm
 
-  www:
+  release-www:
+    image: farmos-mountain-site-4.0.0-beta4-local
     depends_on:
-      - db
-    image: ghcr.io/fosten/farmos-mountain-site-4.0.0-beta4:${STACK_PARAM:-latest}
+      release-db:
+        condition: service_started
+      init-www:
+        condition: service_completed_successfully
+    build:
+      context: .
+      dockerfile: Dockerfile.release
     networks:
       - farmos-private-release
     volumes:
-      - './release-www:/opt/drupal/web/sites/default'
+      - './local/release-www:/var/www/html'
     ports:
       - '80:80'
     environment:
+      PGHOST: release-db
       XDEBUG_MODE: debug
       XDEBUG_CONFIG: client_host=172.17.0.1
-      # Enable these for PHPStorm:
       XDEBUG_SESSION: PHPSTORM
       PHP_IDE_CONFIG: serverName=localhost
+
+volumes:
+  release-db:
 
 networks:
   farmos-private-release:
     driver: bridge
-    name: farmos-private-release

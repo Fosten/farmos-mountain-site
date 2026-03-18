@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v6
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v6
@@ -30,6 +31,7 @@ jobs:
             type=ref,event=branch
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
 
