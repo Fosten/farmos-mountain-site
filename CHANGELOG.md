@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Docblocks use concrete FieldType while runtime is FieldItemInterface [fosten]
 - Replace phpstan.neon with latest farmOS phpstan.neon [fosten]
 - Build images locally for local development [fosten]
 - Bump postgres from 15 to 17 in local stacks [fosten]
