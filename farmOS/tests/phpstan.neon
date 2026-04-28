@@ -4,11 +4,6 @@ parameters:
   ignoreErrors:
     # new static() is a best practice in Drupal, so we cannot fix that.
     - '#^Unsafe usage of new static#'
-    # Use concrete FieldType classes
-    - identifier: varTag.nativeType
-      paths:
-        - '*/field/*.php'
-        - '*/inventory/*.php'
   scanDirectories:
     # Tell PHPStan where to find GeoPHP classes.
     - vendor/itamair/geophp

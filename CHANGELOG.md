@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Remove Use concrete FieldType classes from phpstan.neon [fosten]
 - Re-add farm_project_plan, upgrade farm_map_custom_layers [fosten]
 - Pin asset_extended modules to ^2.0 [fosten]
 - Docblocks use concrete FieldType while runtime is FieldItemInterface [fosten]
