@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build images locally for local development [fosten]
 - Bump postgres from 15 to 17 in local stacks [fosten]
 - Upgrade Docker Compose from V1 to V2 [fosten]
-- Bump production from 3.5.1 to 4.0.0 [fosten]
+- Bump production from 3.5.1 to 4.0.1 [fosten]
 - Install composer as www-data user for testing and production [fosten]
 - Unpin farmos from 3.5.1 to 4.x in testing [fosten]
 - Disabled PHPStan warnings for unmatched ignored errors [fosten]

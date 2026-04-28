@@ -53,7 +53,7 @@ services:
       POSTGRES_DB: farm
 
   release-www:
-    image: farmos-mountain-site-4.0.0-local
+    image: farmos-mountain-site-4.0.1-local
     depends_on:
       release-db:
         condition: service_started
