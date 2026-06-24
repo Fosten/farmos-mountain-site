@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Pin simple_oauth 6.1.1 [fosten]
 - Remove Use concrete FieldType classes from phpstan.neon [fosten]
 - Re-add farm_project_plan, upgrade farm_map_custom_layers [fosten]
 - Pin asset_extended modules to ^2.0 [fosten]
