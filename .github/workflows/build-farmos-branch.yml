@@ -10,12 +10,20 @@ defaults:
 env:
   IMAGE_NAME_PREFIX: ghcr.io/fosten/farmos-mountain-site-4.x
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v7
+
+      - name: Compute short SHA
+        id: vars
+        run: echo "short_sha=sha-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Docker meta
         id: meta
@@ -28,9 +36,7 @@ jobs:
           flavor:
             latest=false
           tags: |
-            type=ref,event=branch
-            type=sha
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=${{ steps.vars.outputs.short_sha }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
@@ -51,6 +57,6 @@ jobs:
           platforms: linux/amd64
           context: farmOS/
           file: farmOS/Dockerfile.branch
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

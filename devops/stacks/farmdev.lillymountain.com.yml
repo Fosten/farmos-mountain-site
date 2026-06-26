@@ -1,6 +1,6 @@
 services:
   www:
-    image: ghcr.io/fosten/farmos-mountain-site-4.x-dev:${STACK_PARAM:-latest}
+    image: ghcr.io/fosten/farmos-mountain-site-4.x-dev:${STACK_PARAM}
     networks:
       - traefik-public
     environment:

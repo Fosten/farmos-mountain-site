@@ -10,12 +10,20 @@ defaults:
 env:
   IMAGE_NAME_PREFIX: ghcr.io/fosten/farmos-mountain-site-4.x-dev
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v7
+
+      - name: Compute short SHA
+        id: vars
+        run: echo "short_sha=sha-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Docker meta
         id: meta
@@ -28,9 +36,7 @@ jobs:
           flavor:
             latest=false
           tags: |
-            type=ref,event=branch
-            type=sha
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=${{ steps.vars.outputs.short_sha }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
@@ -45,7 +51,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build local test image
         uses: docker/build-push-action@v7
         with:
           platforms: linux/amd64
@@ -56,7 +62,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Start container
-        run: docker run -d --name www ${{ env.IMAGE_NAME_PREFIX }}:latest
+        run: docker run -d --name www ${{ env.IMAGE_NAME_PREFIX }}:${{ steps.vars.outputs.short_sha }}
 
       - name: Run PHP CodeSniffer
         id: codesniffer
@@ -86,6 +92,13 @@ jobs:
           echo '| PHP compatibility | ${{ steps.phpcompatibility.conclusion == 'failure' && '❌' || ' ✅' }} |' >> $GITHUB_STEP_SUMMARY
           echo '| PHPStan | ${{ steps.phpstan.conclusion == 'failure' && '❌' || ' ✅' }} |' >> $GITHUB_STEP_SUMMARY
 
-      - name: Push image
-        run: |
-          docker push ${{ env.IMAGE_NAME_PREFIX }} --all-tags
+      - name: Push verified image to registry
+        if: ${{ success() }}
+        uses: docker/build-push-action@v7
+        with:
+          platforms: linux/amd64
+          context: farmOS/
+          file: farmOS/Dockerfile.dev
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
