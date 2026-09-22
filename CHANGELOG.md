@@ -13,13 +13,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pin simple_oauth 6.1.1 [fosten]
 - Remove Use concrete FieldType classes from phpstan.neon [fosten]
 - Re-add farm_project_plan, upgrade farm_map_custom_layers [fosten]
+- Bump production from 4.0.0 to 4.0.6 [fosten]
 - Pin asset_extended modules to ^2.0 [fosten]
+
+## [2.0.0] (2026-04-01)
+
+- Bump production from 4.0.0-beta4 to 4.0.0 [fosten]
 - Docblocks use concrete FieldType while runtime is FieldItemInterface [fosten]
 - Replace phpstan.neon with latest farmOS phpstan.neon [fosten]
 - Build images locally for local development [fosten]
 - Bump postgres from 15 to 17 in local stacks [fosten]
 - Upgrade Docker Compose from V1 to V2 [fosten]
-- Bump production from 3.5.1 to 4.0.6 [fosten]
+- Bump production from 3.5.1 to 4.0.0-beta4 [fosten]
 - Install composer as www-data user for testing and production [fosten]
 - Unpin farmos from 3.5.1 to 4.x in testing [fosten]
 - Disabled PHPStan warnings for unmatched ignored errors [fosten]
@@ -33,6 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Test farmOS-4.x branch for farm_calendar_events [fosten]
 - Force root user for system package installation in Dockerfiles [fosten]
 - Bump development from 3.x to 4.x [fosten]
+
+## [1.4.0] (2026-03-03)
+
 - Pin simple_oauth 6.0.0 [fosten]
 - Change drupal/keycloak version constraint from 2.2.0 to 2.2.x [fosten]
 - Bump production from 3.4.5 to 3.5.1 [fosten]
@@ -94,7 +102,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial commit [fosten]
 
-[Unreleased]: https://github.com/Fosten/farmos-mountain-site/compare/1.3.0...main
+[Unreleased]: https://github.com/Fosten/farmos-mountain-site/compare/2.0.0...main
+[2.0.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/2.0.0
+[1.4.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.4.0
 [1.3.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.3.0
 [1.2.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.2.0
 [1.1.0]: https://github.com/Fosten/farmos-mountain-site/releases/tag/1.1.0
