@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Allow symfony/runtime Composer plugin [fosten]
 - Improve GHA workflows [fosten]
 - Change production version lookup from 3.x to 4.x [fosten]
 - Pin simple_oauth 6.1.1 [fosten]
