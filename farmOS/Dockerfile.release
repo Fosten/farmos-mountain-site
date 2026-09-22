@@ -1,5 +1,5 @@
-# Inherit from the farmOS 4.0.5 image on Docker Hub.
-FROM farmos/farmos:4.0.5
+# Inherit from the farmOS 4.0.6 image on Docker Hub.
+FROM farmos/farmos:4.0.6
 LABEL org.opencontainers.image.source="https://github.com/Fosten/farmos-mountain-site"
 
 ARG FARM_CONFIG_EXISTS=1
@@ -26,7 +26,7 @@ USER www-data
 # Install composer.
 RUN composer config cache-dir $(mktemp -d)
 RUN composer config audit.block-insecure false
-RUN composer require "farmos/farmos:4.0.5" --no-install
+RUN composer require "farmos/farmos:4.0.6" --no-install
 RUN if [ "$FARM_CONFIG_EXISTS" = "1" ]; then \
   composer require "fosten/farm_mountain_config:*" --no-install \
   ;fi
